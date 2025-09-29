@@ -1,5 +1,5 @@
 import { Detail } from "@/utils/types";
-import ItemView from "@/components/Layout/item-view";
+import ItemView from "@/components/layout/item-view";
 import { getMovieDetails } from "@/utils/api";
 import { notFound } from "next/navigation";
 

@@ -1,10 +1,10 @@
 import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
 import { imageOriginal, imageResize } from "../utils/constants";
 import { Fragment } from "react";
-import Image from "../components/Shared/image";
+import Image from "../components/shared/image";
 import { Item } from "../utils/types";
 import Link from "next/link";
-import MovieSlider from "../components/Movie/movie-slider";
+import MovieSlider from "../components/movie/movie-slider";
 import { getHomeData } from "../utils/api";
 import { Metadata } from "next";
 

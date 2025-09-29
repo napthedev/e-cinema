@@ -1,4 +1,4 @@
-import ItemView from "@/components/Layout/item-view";
+import ItemView from "@/components/layout/item-view";
 import { getTVDetails } from "@/utils/api";
 import { notFound } from "next/navigation";
 import { Detail } from "@/utils/types";

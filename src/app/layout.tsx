@@ -3,8 +3,8 @@ import "nprogress/nprogress.css";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import Footer from "../components/Layout/footer";
-import Navbar from "../components/Layout/navbar";
+import Footer from "../components/layout/footer";
+import Navbar from "../components/layout/navbar";
 import type { Metadata } from "next";
 import ProgressBarProvider from "./providers/progress-bar-provider";
 

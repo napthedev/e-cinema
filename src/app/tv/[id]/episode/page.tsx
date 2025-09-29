@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import { embedEpisode, imageOriginal, imageResize } from "@/utils/constants";
-import Image from "@/components/Shared/image";
+import Image from "@/components/shared/image";
 import Link from "next/link";
-import StarRating from "@/components/Display/star-rating";
+import StarRating from "@/components/display/star-rating";
 import { getTVSeasons } from "@/utils/api";
 import { notFound } from "next/navigation";
 import { Detail, Episode, Season } from "@/utils/types";

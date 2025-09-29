@@ -5,14 +5,14 @@ import { FaPlayCircle, FaYoutube } from "react-icons/fa";
 import { Fragment, useState } from "react";
 import { imageOriginal, imageResize } from "@/utils/constants";
 
-import Button from "../Shared/button";
+import Button from "../shared/button";
 import { FaTimes } from "react-icons/fa";
-import Image from "../Shared/image";
+import Image from "../shared/image";
 import Link from "next/link";
-import Meta from "../Shared/meta";
-import MovieSlider from "../Movie/movie-slider";
+import Meta from "../shared/meta";
+import MovieSlider from "../movie/movie-slider";
 import type { NextPage } from "next";
-import StarRating from "../Display/star-rating";
+import StarRating from "../display/star-rating";
 
 interface ItemViewProps {
   media_type: "movie" | "tv";

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "../components/Shared/image";
+import Image from "../components/shared/image";
 
 export default function NotFound() {
   return (

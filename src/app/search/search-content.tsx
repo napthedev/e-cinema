@@ -2,7 +2,7 @@
 
 import { FormEvent, useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
-import MovieGrid from "../../components/Movie/movie-grid";
+import MovieGrid from "../../components/movie/movie-grid";
 import { SearchResult } from "../../utils/types";
 import { search } from "../../utils/api";
 import { useRouter, useSearchParams } from "next/navigation";

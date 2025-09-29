@@ -2,7 +2,7 @@
 
 import { Fragment, useState } from "react";
 import { imageResize } from "@/utils/constants";
-import Image from "@/components/Shared/image";
+import Image from "@/components/shared/image";
 import Link from "next/link";
 import { Detail, Episode, Season } from "@/utils/types";
 

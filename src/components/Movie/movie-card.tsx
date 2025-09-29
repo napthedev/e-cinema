@@ -1,4 +1,4 @@
-import Image from "../Shared/image";
+import Image from "../shared/image";
 import { Item } from "@/utils/types";
 import Link from "next/link";
 import type { NextPage } from "next";
