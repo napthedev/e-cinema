@@ -4,7 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  @apply m-0 bg-dark text-gray-200 min-h-screen overflow-x-hidden;
+  @apply m-0 bg-dark text-text-primary min-h-screen overflow-x-hidden;
 }
 
 .scrolled .navbar {
@@ -16,21 +16,22 @@ body {
 }
 
 :root {
-  --swiper-theme-color: #ff0000 !important;
+  --swiper-theme-color: #ff6b35 !important;
 }
 
 #nprogress .bar {
-  background: #ff0000 !important;
+  background: #ff6b35 !important;
   height: 3px !important;
 }
 
 #nprogress .peg {
-  box-shadow: 0 0 10px #ff0000, 0 0 5px #ff0000 !important;
+  box-shadow: 0 0 10px #ff6b35, 0 0 5px #ff6b35 !important;
 }
 
 .multiline-ellipsis {
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -40,5 +41,5 @@ body {
 }
 
 .rounded-btn {
-  @apply bg-dark-lighten w-8 h-8 rounded-full text-center inline-flex justify-center items-center;
+  @apply bg-dark-accent hover:bg-dark-lighten w-8 h-8 rounded-full text-center inline-flex justify-center items-center text-text-secondary hover:text-text-primary transition-all duration-200;
 }
