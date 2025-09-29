@@ -1,7 +1,7 @@
 import { Item } from "@/utils/types";
-import MovieCard from "./MovieCard";
+import MovieCard from "./movie-card";
 import type { NextPage } from "next";
-import Pagination from "../Display/Pagination";
+import Pagination from "../Display/pagination";
 
 interface MovieGridProps {
   data: Item[];

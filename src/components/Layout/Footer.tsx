@@ -1,5 +1,4 @@
-import { FaDiscord, FaFacebook, FaGithub } from "react-icons/fa";
-
+import { FaGithub } from "react-icons/fa";
 import type { NextPage } from "next";
 
 const Footer: NextPage = () => {
@@ -12,25 +11,9 @@ const Footer: NextPage = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/napthedev/eCinema.git"
+          href="https://github.com/napthedev/e-cinema.git"
         >
           <FaGithub size={25} />
-        </a>
-        <a
-          className="hover:text-[#1877f2] transition duration-300"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.facebook.com/napthedev"
-        >
-          <FaFacebook size={25} />
-        </a>
-        <a
-          className="hover:text-[#5a65ea] transition duration-300"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://discord.com/users/877882975855992852"
-        >
-          <FaDiscord size={25} />
         </a>
       </div>
     </div>

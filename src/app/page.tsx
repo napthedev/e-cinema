@@ -1,33 +1,41 @@
 import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
 import { imageOriginal, imageResize } from "../utils/constants";
-
-import Button from "../components/Shared/Button";
 import { Fragment } from "react";
-import { GetStaticProps } from "next";
-import Image from "../components/Shared/Image";
+import Image from "../components/Shared/image";
 import { Item } from "../utils/types";
 import Link from "next/link";
-import Meta from "../components/Shared/Meta";
-import MovieSlider from "../components/Movie/MovieSlider";
-import type { NextPage } from "next";
+import MovieSlider from "../components/Movie/movie-slider";
 import { getHomeData } from "../utils/api";
+import { Metadata } from "next";
 
-interface HomeProps {
-  data: {
-    [id: string]: Item[];
-  };
-  main: Item;
+export const metadata: Metadata = {
+  title: "e-cinema - Popular movies in one place",
+  description: "Watch your favorite movies and TV shows in our website.",
+  openGraph: {
+    images: ["/preview.png"],
+  },
+};
+
+async function getHomeContent() {
+  try {
+    const data = await getHomeData();
+    const trending = data["Trending Movies"];
+    const main = trending[new Date().getDate() % trending.length];
+
+    return {
+      data,
+      main,
+    };
+  } catch (error) {
+    throw new Error("Failed to fetch home data");
+  }
 }
 
-const Home: NextPage<HomeProps> = ({ data, main }) => {
+export default async function Home() {
+  const { data, main } = await getHomeContent();
+
   return (
     <>
-      <Meta
-        title="eCinema - Popular movies in one place"
-        description="Watch your favorite movies and TV shows in out website."
-        image="/preview.png"
-      />
-
       <div className="relative w-screen h-screen hidden md:flex justify-between items-center gap-6 md:px-20 px-10">
         <Image
           src={imageOriginal(main.backdrop_path)}
@@ -45,21 +53,19 @@ const Home: NextPage<HomeProps> = ({ data, main }) => {
               {main.overview}
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
-              <Link href={`/movie/${main.id}/watch`}>
-                <a>
-                  <Button>
-                    <FaPlayCircle />
-                    <span>Watch Now</span>
-                  </Button>
-                </a>
+              <Link
+                href={`/movie/${main.id}/watch`}
+                className="bg-dark-lighten hover:bg-dark-darken text-white transition duration-300 py-3 px-6 rounded-md outline-none flex items-center gap-2 whitespace-nowrap"
+              >
+                <FaPlayCircle />
+                <span>Watch Now</span>
               </Link>
-              <Link href={`/movie/${main.id}`}>
-                <a>
-                  <Button>
-                    <FaInfoCircle />
-                    <span>View Info</span>
-                  </Button>
-                </a>
+              <Link
+                href={`/movie/${main.id}`}
+                className="bg-dark-lighten hover:bg-dark-darken text-white transition duration-300 py-3 px-6 rounded-md outline-none flex items-center gap-2 whitespace-nowrap"
+              >
+                <FaInfoCircle />
+                <span>View Info</span>
               </Link>
             </div>
           </div>
@@ -86,30 +92,4 @@ const Home: NextPage<HomeProps> = ({ data, main }) => {
       ))}
     </>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const data = await getHomeData();
-
-    const trending = data["Trending Movies"];
-
-    const main = trending[new Date().getDate() % trending.length];
-
-    return {
-      props: {
-        data,
-        main,
-      },
-      revalidate: 3600,
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      notFound: true,
-      revalidate: true,
-    };
-  }
-};
-
-export default Home;
+}

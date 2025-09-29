@@ -1,8 +1,10 @@
-import { Autoplay, Navigation } from "swiper";
+"use client";
+
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Item } from "../../utils/types";
-import MovieCard from "./MovieCard";
+import MovieCard from "./movie-card";
 import type { NextPage } from "next";
 
 interface MovieSliderProps {

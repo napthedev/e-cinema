@@ -1,16 +1,18 @@
+"use client";
+
 import { Cast, Detail, Item, VideoTrailer } from "@/utils/types";
 import { FaPlayCircle, FaYoutube } from "react-icons/fa";
 import { Fragment, useState } from "react";
 import { imageOriginal, imageResize } from "@/utils/constants";
 
-import Button from "../Shared/Button";
+import Button from "../Shared/button";
 import { FaTimes } from "react-icons/fa";
-import Image from "../Shared/Image";
+import Image from "../Shared/image";
 import Link from "next/link";
-import Meta from "../Shared/Meta";
-import MovieSlider from "../Movie/MovieSlider";
+import Meta from "../Shared/meta";
+import MovieSlider from "../Movie/movie-slider";
 import type { NextPage } from "next";
-import StarRating from "../Display/StarRating";
+import StarRating from "../Display/star-rating";
 
 interface ItemViewProps {
   media_type: "movie" | "tv";
@@ -58,22 +60,18 @@ const ItemView: NextPage<ItemViewProps> = ({
             <div className="flex gap-2 justify-center md:justify-start md:h-12 flex-wrap md:flex-nowrap">
               {media_type === "movie" ? (
                 <Link href={`/movie/${data.id}/watch`}>
-                  <a>
-                    <Button>
-                      <FaPlayCircle />
-                      <span>Watch now</span>
-                    </Button>
-                  </a>
+                  <Button>
+                    <FaPlayCircle />
+                    <span>Watch now</span>
+                  </Button>
                 </Link>
               ) : data.seasons.length > 0 &&
                 data.seasons[0].episode_count > 0 ? (
                 <Link href={`/tv/${data.id}/watch`}>
-                  <a>
-                    <Button>
-                      <FaPlayCircle />
-                      <span>Watch now</span>
-                    </Button>
-                  </a>
+                  <Button>
+                    <FaPlayCircle />
+                    <span>Watch now</span>
+                  </Button>
                 </Link>
               ) : (
                 <></>

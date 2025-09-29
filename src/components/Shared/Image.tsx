@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, HTMLProps, useEffect, useRef, useState } from "react";
 
 interface ImageProps {
@@ -7,7 +9,6 @@ interface ImageProps {
 
 const Image: FC<HTMLProps<HTMLImageElement> & ImageProps> = ({
   style,
-  crossOrigin: _,
   opacity = 1,
   src,
   ...others
@@ -19,7 +20,6 @@ const Image: FC<HTMLProps<HTMLImageElement> & ImageProps> = ({
 
   useEffect(() => {
     const handler = () => {
-      console.log("loaded");
       setLoaded(true);
     };
 

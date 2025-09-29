@@ -1,5 +1,5 @@
-import { Detail } from "./types";
 import axios from "./axios";
+import { Detail } from "./types";
 
 export const getHomeData: () => Promise<any> = async () => {
   const HomeAPIRoutes: {
