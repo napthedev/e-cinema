@@ -1,6 +1,4 @@
-import { Fragment } from "react";
-import { embedEpisode, imageOriginal, imageResize } from "@/utils/constants";
-import Image from "@/components/shared/image";
+import { embedEpisode, imageOriginal } from "@/utils/constants";
 import Link from "next/link";
 import StarRating from "@/components/display/star-rating";
 import { getTVSeasons } from "@/utils/api";

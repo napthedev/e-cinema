@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { imageOriginal, imageResize } from "@/utils/constants";
 import Image from "@/components/shared/image";
 import Link from "next/link";
