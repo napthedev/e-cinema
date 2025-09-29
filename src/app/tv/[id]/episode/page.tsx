@@ -1,10 +1,11 @@
-import { embedEpisode, imageOriginal } from "@/utils/constants";
+import { imageOriginal } from "@/utils/constants";
 import Link from "next/link";
 import StarRating from "@/components/display/star-rating";
 import { getTVSeasons } from "@/utils/api";
 import { notFound } from "next/navigation";
 import { Detail, Episode, Season } from "@/utils/types";
 import TVSeasonSelector from "./tv-season-selector";
+import VideoPlayer from "@/components/shared/video-player";
 
 interface TVEpisodeProps {
   params: {
@@ -100,18 +101,13 @@ function TVEpisodeContent({
   return (
     <div className="mt-28 flex flex-col lg:flex-row px-5 lg:px-20 gap-8">
       <div className="flex-grow">
-        <div
-          className="relative h-0 w-full"
-          style={{ paddingBottom: "56.25%" }}
-        >
-          <iframe
-            className="absolute top-0 left-0 w-full h-full"
-            src={embedEpisode(data.id, seasonId, episodeId)}
-            title="YouTube video player"
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
-        </div>
+        <VideoPlayer
+          tmdbId={data.id}
+          type="tv"
+          season={seasonId}
+          episode={episodeId}
+          title={`${data.name} - S${seasonId}E${episodeId}`}
+        />
         <div className="my-10 flex flex-col items-start gap-2">
           <Link
             href={`/tv/${data.id}`}
