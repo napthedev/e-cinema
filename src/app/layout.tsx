@@ -7,6 +7,7 @@ import Footer from "../components/layout/footer";
 import Navbar from "../components/layout/navbar";
 import type { Metadata } from "next";
 import ProgressBarProvider from "./providers/progress-bar-provider";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "e-cinema - Popular movies in one place",
@@ -24,11 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ProgressBarProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </ProgressBarProvider>
+        <Suspense fallback={null}>
+          <ProgressBarProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </ProgressBarProvider>
+        </Suspense>
       </body>
     </html>
   );

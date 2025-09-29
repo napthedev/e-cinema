@@ -54,7 +54,12 @@ function WatchTVContent({
       <div className="mt-24 md:mx-20 w-full max-w-4xl mx-6">
         <div className="flex gap-4 flex-col md:flex-row">
           <div className="md:w-[200px] w-full h-full flex justify-center items-center flex-shrink-0">
-            <Image src={imageResize(data.poster_path)} alt="" />
+            <Image
+              src={imageResize(data.poster_path)}
+              alt={data.name}
+              width={200}
+              height={300}
+            />
           </div>
           <div className="flex flex-col items-start gap-3 flex-grow">
             <Link

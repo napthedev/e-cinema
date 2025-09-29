@@ -11,6 +11,14 @@ interface MovieCardProps {
 }
 
 const MovieCard: NextPage<MovieCardProps> = ({ item, height, width }) => {
+  const numericWidth =
+    typeof width === "string" && width.includes("%")
+      ? 200
+      : typeof width === "string"
+      ? parseInt(width)
+      : width;
+  const numericHeight = typeof height === "string" ? parseInt(height) : height;
+
   return (
     <Link
       href={item.media_type === "tv" ? `/tv/${item.id}` : `/movie/${item.id}`}
@@ -20,7 +28,9 @@ const MovieCard: NextPage<MovieCardProps> = ({ item, height, width }) => {
         style={{ height, width }}
         className="group-hover:brightness-75 object-cover"
         src={imageResize(item.poster_path)}
-        alt=""
+        alt={item.title || item.name || "Movie poster"}
+        width={numericWidth}
+        height={numericHeight}
       />
       <p className="p-2 h-[60px] w-full overflow-hidden bg-dark-darken group-hover:text-red transition duration-300">
         {item.title || item.name}

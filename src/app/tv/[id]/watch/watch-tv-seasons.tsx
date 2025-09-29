@@ -31,7 +31,9 @@ export default function WatchTVSeasons({ seasons, data }: WatchTVSeasonsProps) {
               <Image
                 className="w-full h-full"
                 src={imageResize(item.poster_path, "w154")}
-                alt=""
+                alt={item.name}
+                width={154}
+                height={231}
               />
             </div>
             <div className="flex flex-col justify-center items-start">
@@ -66,7 +68,9 @@ export default function WatchTVSeasons({ seasons, data }: WatchTVSeasonsProps) {
                     <Image
                       className="w-[154px] h-[87px] flex-shrink-0 mr-4 object-cover rounded-md"
                       src={imageResize(child.still_path, "w154")}
-                      alt=""
+                      alt={child.name}
+                      width={154}
+                      height={87}
                     />
                     <div className="flex-grow">
                       <h1>{child.name}</h1>

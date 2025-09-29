@@ -1,15 +1,45 @@
+"use client";
+
 import { FaSearch } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 import type { NextPage } from "next";
+import { useState, useEffect } from "react";
 
 const Navbar: NextPage = () => {
+  const [scrollOpacity, setScrollOpacity] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      // Calculate opacity from 0 to 1 based on scroll from 0 to 50px
+      const opacity = Math.min(scrollTop / 50, 1);
+      setScrollOpacity(opacity);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div
-      style={{ minHeight: "60px" }}
-      className="fixed top-0 left-0 right-0 w-screen py-3 md:px-7 px-3 h-[7vw] max-h-16 z-50 flex justify-between items-center transition duration-500 bg-transparent navbar"
+      style={{
+        minHeight: "60px",
+        backgroundColor: `rgba(0, 0, 0, ${scrollOpacity * 0.8})`,
+        backdropFilter:
+          scrollOpacity > 0 ? `blur(${scrollOpacity * 4}px)` : "none",
+      }}
+      className="fixed top-0 left-0 right-0 w-screen py-3 md:px-7 px-3 h-[7vw] max-h-16 z-50 flex justify-between items-center transition-all duration-300 navbar"
     >
       <Link href="/" className="h-full w-auto">
-        <img className="h-full w-auto" src="/logo.png" alt="" />
+        <Image
+          className="h-full w-auto"
+          src="/logo.png"
+          alt="E-Cinema Logo"
+          width={120}
+          height={60}
+          priority
+        />
       </Link>
       <Link href="/search">
         <FaSearch className="mr-4 cursor-pointer" size={25} />

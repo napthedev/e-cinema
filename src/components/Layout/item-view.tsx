@@ -53,7 +53,9 @@ const ItemView: NextPage<ItemViewProps> = ({
             <Image
               className="rounded-xl"
               src={imageResize(data.poster_path, "w300")}
-              alt=""
+              alt={media_type === "movie" ? data.title : data.name}
+              width={300}
+              height={450}
             />
           </div>
           <div className="flex flex-col justify-start gap-3">
@@ -147,7 +149,9 @@ const ItemView: NextPage<ItemViewProps> = ({
                     <Image
                       className="w-full h-auto object-cover rounded-xl"
                       src={imageResize(item.profile_path)}
-                      alt=""
+                      alt={item.name}
+                      width={150}
+                      height={225}
                     />
                     <p className="text-center">{item.name}</p>
                     <p className="text-orange text-center">{item.character}</p>

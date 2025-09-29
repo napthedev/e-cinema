@@ -2,7 +2,32 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["image.tmdb.org"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+      },
+      {
+        protocol: "https",
+        hostname: "www.youtube.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.2embed.cc",
+      },
+      {
+        protocol: "https",
+        hostname: "www.superembed.stream",
+      },
+      {
+        protocol: "https",
+        hostname: "vidsrc.me",
+      },
+      {
+        protocol: "https",
+        hostname: "moviesapi.club",
+      },
+    ],
   },
 };
 

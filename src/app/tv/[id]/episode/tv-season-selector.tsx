@@ -38,7 +38,9 @@ export default function TVSeasonSelector({
               <Image
                 className="w-full h-full"
                 src={imageResize(item.poster_path, "w45")}
-                alt=""
+                alt={item.name}
+                width={45}
+                height={68}
               />
             </div>
             <div className="flex flex-col justify-center items-start">
@@ -63,7 +65,9 @@ export default function TVSeasonSelector({
                     <Image
                       className="w-[154px] h-[87px] flex-shrink-0 mr-4 object-cover rounded-md"
                       src={imageResize(child.still_path, "w154")}
-                      alt=""
+                      alt={`Episode ${child.episode_number}`}
+                      width={154}
+                      height={87}
                     />
                     <div className="flex-grow">
                       <p

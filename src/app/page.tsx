@@ -40,7 +40,10 @@ export default async function Home() {
           src={imageOriginal(main.backdrop_path)}
           opacity={0.5}
           className="w-screen h-screen absolute top-0 left-0 hidden md:block object-cover"
-          alt=""
+          alt="Movie backdrop"
+          width={1920}
+          height={1080}
+          priority
         />
 
         <div className="z-10 w-auto flex-1 flex justify-center items-center">
@@ -73,7 +76,9 @@ export default async function Home() {
           <Image
             className="z-10 w-[300px] rounded-xl"
             src={imageResize(main.poster_path, "w300")}
-            alt=""
+            alt={main.title || main.name || "Movie poster"}
+            width={300}
+            height={450}
           />
         </div>
       </div>
